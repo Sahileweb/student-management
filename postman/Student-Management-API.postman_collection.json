@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "48b2ad3f-d9cd-4b80-aa78-2c321642188a",
+		"name": "Intern Backend API – Auth & Tasks",
+		"description": "REST API for Admin–Student task management system with JWT authentication and role-based access.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38927501"
+	},
+	"item": [
+		{
+			"name": "Admin Signup",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Admin creates Student",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Student Login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Task APIs",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Student views own Tasks",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Student updates Task Status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NjNhZjQ0NzAxMzBjZWU1YWE5MGQ2MiIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzY4MTQwNjQwLCJleHAiOjE3NjgxODM4NDB9.enmL71YGPMkG6YttJ8D_MjkMDh4UKXopXibn2yLsU0M",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"Completed\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tasks/student/6963af4470130cee5aa90d62",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tasks",
+						"student",
+						"6963af4470130cee5aa90d62"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin views all Tasks",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Admin deletes Task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NjNhYmExMDUwOTczY2QzMTUwZDlmZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2ODEzOTg0NCwiZXhwIjoxNzY4MTgzMDQ0fQ.j17LCe8horXKWhxsrzzlDowwccPNLbxR2pp_um5zD0Y",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/tasks/admin/6963afe470130cee5aa90d65",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tasks",
+						"admin",
+						"6963afe470130cee5aa90d65"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

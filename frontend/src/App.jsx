@@ -19,6 +19,7 @@ function App() {
   <Route path="/" element={<Landing />} />
 
   <Route path="/admin/signup" element={<AdminSignup />} />
+  
   <Route path="/admin/login" element={<AdminLogin />} />
   <Route 
     path="/admin/dashboard" 

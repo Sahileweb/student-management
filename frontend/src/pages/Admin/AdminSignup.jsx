@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
+// src/pages/Admin/AdminSignup.jsx  <-- Note the .jsx extension
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserPlus } from 'lucide-react';
 import api from '../../lib/api';
@@ -14,16 +14,16 @@ export default function AdminSignup() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
     try {
-      await api.post('/admin/signup', formData);
-      navigate('/admin/login');
-    } catch (err: any) {
+      await api.post('/auth/admin/signup', formData); 
+      navigate('/auth/admin/login');
+    } catch (err) {
+     
       setError(err.response?.data?.message || 'Signup failed');
     } finally {
       setLoading(false);
@@ -51,43 +51,37 @@ export default function AdminSignup() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Full Name
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
               <input
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 border bg-blue-50 border-blue-400 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 border bg-blue-50 border-blue-400 rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
                 placeholder="John Doe"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
               <input
                 type="email"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 border bg-blue-50 border-blue-400 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 border bg-blue-50 border-blue-400 rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
                 placeholder="admin@example.com"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Password
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
               <input
                 type="password"
                 required
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className="w-full px-4 py-3 border bg-blue-50 border-blue-400 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 border bg-blue-50 border-blue-400 rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
                 placeholder="••••••••"
               />
             </div>
@@ -95,15 +89,15 @@ export default function AdminSignup() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition-colors disabled:opacity-50"
             >
               {loading ? 'Creating Account...' : 'Create Account'}
             </button>
           </form>
 
-          <p className="text-center text-gray-600 mt-6">
+          <p className="text-center text-gray-600 mt-6 text-sm">
             Already have an account?{' '}
-            <Link to="/admin/login" className="text-blue-600 font-medium hover:text-blue-700">
+            <Link to="/auth/admin/login" className="text-blue-600 font-semibold hover:text-blue-700">
               Login
             </Link>
           </p>

@@ -52,7 +52,6 @@ The project implements **JWT authentication**, **role-based access control**, an
 - Mongoose
 - JWT (jsonwebtoken)
 - bcryptjs
-- Multer (file uploads)
 
 ---
 

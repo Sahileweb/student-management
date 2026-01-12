@@ -1,10 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { LogIn } from 'lucide-react';
 import api from '../../lib/api';
 import { useAuth } from '../../context/AuthContext';
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Added Link import
 
 export default function AdminLogin() {
   const [formData, setFormData] = useState({
@@ -25,13 +24,11 @@ export default function AdminLogin() {
       const response = await api.post('auth/admin/login', formData);
       const token = response.data.token;
       
-    
       const decoded = jwtDecode(token);
       
-     
       localStorage.setItem("adminToken", token);
       localStorage.setItem("role", "admin"); 
-     
+      
       navigate("/admin/dashboard", { replace: true });
       
     } catch (err) {
@@ -102,6 +99,18 @@ export default function AdminLogin() {
               {loading ? 'Logging in...' : 'Login'}
             </button>
           </form>
+
+          {/* New Signup Link Section */}
+          <div className="mt-6 text-center text-sm text-gray-600">
+            Don't have an account?{' '}
+            <Link 
+              to="/auth/admin/signup" 
+              className="text-blue-600 font-semibold hover:text-blue-700 hover:underline transition-colors"
+            >
+              Sign up
+            </Link>
+          </div>
+          
         </div>
       </div>
     </div>

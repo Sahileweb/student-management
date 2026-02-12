@@ -15,34 +15,6 @@ export default function AdminLogin() {
   const { login } = useAuth(); 
   const navigate = useNavigate();
 
-  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setError('');
-  //   setLoading(true);
-
-  //   try {
-  //     const response = await api.post('auth/admin/login', formData);
-  //     const token = response.data.token;
-      
-  //     const decoded = jwtDecode(token);
-      
-  //     localStorage.setItem("adminToken", token);
-  //     localStorage.setItem("role", "admin"); 
-      
-  //     navigate("/admin/dashboard", { replace: true });
-      
-  //   } catch (err) {
-  //     console.error(err);
-  //     if (err && typeof err === "object" && "response" in err && err.response && typeof err.response === "object" && "data" in err.response && err.response.data && typeof err.response.data === "object" && "message" in err.response.data) {
-  //       setError((err.response as any).data.message || 'Login failed');
-  //     } else {
-  //       setError('Login failed');
-  //     }
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
